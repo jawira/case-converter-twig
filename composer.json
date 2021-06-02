@@ -1,0 +1,25 @@
+{
+  "name": "jawira/case-converter-twig",
+  "description": "Twig extension for Case Converter",
+  "type": "library",
+  "require": {
+    "jawira/case-converter": "^3.4",
+    "php": ">=7.1.3",
+    "twig/twig": "^2.4|^3.0"
+  },
+  "require-dev": {
+    "jawira/skeleton": "^2.2"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Jawira\\CaseConverterTwig\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "jawira",
+      "email": "dev@tugal.be"
+    }
+  ]
+}

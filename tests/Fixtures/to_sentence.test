@@ -1,0 +1,14 @@
+--TEST--
+"to_sentence" filter
+--TEMPLATE--
+{{ 'JAWIRA'|to_sentence }}
+{{ 'fooBarBaz'|to_sentence }}
+{{ ''|to_sentence }}
+{{ 'HELLO_WORLD'|to_sentence }}
+--DATA--
+return [];
+--EXPECT--
+Jawira
+Foo bar baz
+
+Hello world

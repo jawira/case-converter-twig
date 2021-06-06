@@ -1,0 +1,14 @@
+--TEST--
+"to_ada" filter
+--TEMPLATE--
+{{ 'JAWIRA'|to_ada }}
+{{ 'fooBarBaz'|to_ada }}
+{{ ''|to_ada }}
+{{ 'HELLO_WORLD'|to_ada }}
+--DATA--
+return [];
+--EXPECT--
+Jawira
+Foo_Bar_Baz
+
+Hello_World

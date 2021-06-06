@@ -1,0 +1,14 @@
+--TEST--
+"to_cobol" filter
+--TEMPLATE--
+{{ 'JAWIRA'|to_cobol }}
+{{ 'fooBarBaz'|to_cobol }}
+{{ ''|to_cobol }}
+{{ 'HELLO_WORLD'|to_cobol }}
+--DATA--
+return [];
+--EXPECT--
+JAWIRA
+FOO-BAR-BAZ
+
+HELLO-WORLD

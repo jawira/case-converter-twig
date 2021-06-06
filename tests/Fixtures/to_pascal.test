@@ -1,0 +1,14 @@
+--TEST--
+"to_pascal" filter
+--TEMPLATE--
+{{ 'JAWIRA'|to_pascal }}
+{{ 'fooBarBaz'|to_pascal }}
+{{ ''|to_pascal }}
+{{ 'HELLO_WORLD'|to_pascal }}
+--DATA--
+return [];
+--EXPECT--
+Jawira
+FooBarBaz
+
+HelloWorld

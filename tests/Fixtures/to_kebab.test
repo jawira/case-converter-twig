@@ -1,0 +1,14 @@
+--TEST--
+"to_kebab" filter
+--TEMPLATE--
+{{ 'JAWIRA'|to_kebab }}
+{{ 'fooBarBaz'|to_kebab }}
+{{ ''|to_kebab }}
+{{ 'HELLO_WORLD'|to_kebab }}
+--DATA--
+return [];
+--EXPECT--
+jawira
+foo-bar-baz
+
+hello-world

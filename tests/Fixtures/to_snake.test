@@ -1,0 +1,14 @@
+--TEST--
+"to_snake" filter
+--TEMPLATE--
+{{ 'JAWIRA'|to_snake }}
+{{ 'fooBarBaz'|to_snake }}
+{{ ''|to_snake }}
+{{ 'HELLO_WORLD'|to_snake }}
+--DATA--
+return [];
+--EXPECT--
+jawira
+foo_bar_baz
+
+hello_world

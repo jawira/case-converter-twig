@@ -1,0 +1,14 @@
+--TEST--
+"to_title" filter
+--TEMPLATE--
+{{ 'JAWIRA'|to_title }}
+{{ 'fooBarBaz'|to_title }}
+{{ ''|to_title }}
+{{ 'HELLO_WORLD'|to_title }}
+--DATA--
+return [];
+--EXPECT--
+Jawira
+Foo Bar Baz
+
+Hello World

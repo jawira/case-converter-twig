@@ -1,0 +1,14 @@
+--TEST--
+"to_lower" filter
+--TEMPLATE--
+{{ 'JAWIRA'|to_lower }}
+{{ 'fooBarBaz'|to_lower }}
+{{ ''|to_lower }}
+{{ 'HELLO_WORLD'|to_lower }}
+--DATA--
+return [];
+--EXPECT--
+jawira
+foo bar baz
+
+hello world

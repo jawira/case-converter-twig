@@ -1,0 +1,14 @@
+--TEST--
+"to_train" filter
+--TEMPLATE--
+{{ 'JAWIRA'|to_train }}
+{{ 'fooBarBaz'|to_train }}
+{{ ''|to_train }}
+{{ 'HELLO_WORLD'|to_train }}
+--DATA--
+return [];
+--EXPECT--
+Jawira
+Foo-Bar-Baz
+
+Hello-World

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="181px" preserveAspectRatio="none" style="width:489px;height:181px;background:#FFFFFF;" version="1.1" viewBox="0 0 489 181" width="489px" zoomAndPan="magnify"><defs><filter height="300%" id="fsqfi1sgv3new" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="187" x="144.9463" y="16.708">case-converter-twig</text><ellipse cx="215.5061" cy="41.4768" fill="#FFFECC" filter="url(#fsqfi1sgv3new)" rx="23.5061" ry="14.5236" style="stroke:#333333;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="17" x="207.0061" y="44.3234">qa</text><ellipse cx="59.3472" cy="151.6746" fill="#FFFECC" filter="url(#fsqfi1sgv3new)" rx="53.3472" ry="14.7215" style="stroke:#333333;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58" x="27.3472" y="155.4221">php:lint</text><ellipse cx="215.6678" cy="151.2867" fill="#FFFECC" filter="url(#fsqfi1sgv3new)" rx="67.1678" ry="15.8336" style="stroke:#333333;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="170.1678" y="155.0342">phpunit:run</text><ellipse cx="397.6963" cy="151.3924" fill="#FFFECC" filter="url(#fsqfi1sgv3new)" rx="80.1963" ry="18.4393" style="stroke:#333333;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="336.6039" y="154.7511">phpstan:analyze</text><ellipse cx="308.6191" cy="41.4791" fill="#FFFECC" filter="url(#fsqfi1sgv3new)" rx="34.1191" ry="14.526" style="stroke:#333333;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32" x="292.1725" y="44.4912">help</text><!--MD5=[1748b89255b60d33f2cdf4c4b14f6851]
+link qa to php:lint--><path d="M198.85,52.0201 C184.271,60.5461 162.642,73.557 144.5,85.9531 C121.658,101.5606 96.5388,120.909 79.5735,134.3221 " fill="none" id="qa-to-php:lint" style="stroke:#5D9CEC;stroke-width:2.0;"/><polygon fill="#5D9CEC" points="75.4424,137.5984,84.9795,135.1399,79.3599,134.4915,80.0084,128.8719,75.4424,137.5984" style="stroke:#5D9CEC;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="145.5" y="99.02">depend:1</text><!--MD5=[f650ecf875d4995533402a90e716630b]
+link qa to phpunit:run--><path d="M215.5,56.1311 C215.5,74.7594 215.5,108.2606 215.5,129.9141 " fill="none" id="qa-to-phpunit:run" style="stroke:#5D9CEC;stroke-width:2.0;"/><polygon fill="#5D9CEC" points="215.5,135.1477,219.5,126.1477,215.5,130.1477,211.5,126.1477,215.5,135.1477" style="stroke:#5D9CEC;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="216.5" y="99.02">depend:2</text><!--MD5=[813d92c9fb1ef4075574608099832508]
+link qa to phpstan:analyze--><path d="M231.651,52.0371 C261.496,69.7471 325.803,107.9075 364.992,131.1628 " fill="none" id="qa-to-phpstan:analyze" style="stroke:#5D9CEC;stroke-width:2.0;"/><polygon fill="#5D9CEC" points="369.643,133.9225,363.9441,125.8899,365.343,131.3711,359.8618,132.7699,369.643,133.9225" style="stroke:#5D9CEC;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="318.5" y="99.02">depend:3</text><!--MD5=[3cc7378f335428bd171a987ffec672b9]
+@startuml
+title case-converter-twig
+skinparam ArrowFontColor Black
+skinparam ArrowThickness 2
+skinparam UseCaseBackgroundColor #FFFECC
+skinparam UseCaseBorderColor #333333
+skinparam UseCaseBorderThickness 2
+skinparam UseCaseFontColor Black
+
+(qa)
+(php:lint)
+(phpunit:run)
+(phpstan:analyze)
+(help)
+
+
+(qa) -[#5D9CEC]-> (php:lint) : depend:1
+(qa) -[#5D9CEC]-> (phpunit:run) : depend:2
+(qa) -[#5D9CEC]-> (phpstan:analyze) : depend:3
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 12:40:07 UTC 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

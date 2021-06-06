@@ -1,0 +1,14 @@
+--TEST--
+"to_dot" filter
+--TEMPLATE--
+{{ 'JAWIRA'|to_dot }}
+{{ 'fooBarBaz'|to_dot }}
+{{ ''|to_dot }}
+{{ 'HELLO_WORLD'|to_dot }}
+--DATA--
+return [];
+--EXPECT--
+jawira
+foo.bar.baz
+
+hello.world

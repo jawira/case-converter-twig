@@ -35,10 +35,20 @@ Usage
 How to install
 --------------
 
-Simply do this if you are using Symfony Flex:
+Install with Composer:
 
 ```console
 $ composer require jawira/case-converter-twig
+```
+
+If you are not using Symfony Flex, you also have to register the extension:
+
+```yaml
+# config/packages/case_converter_twig.yaml
+services:
+  jawira.case.converter.twig:
+    class: \Jawira\CaseConverterTwig\CaseConverterExtension
+    tags: ['twig.extension']
 ```
 
 Documentation

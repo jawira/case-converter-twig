@@ -1,0 +1,14 @@
+--TEST--
+"to_macro" filter
+--TEMPLATE--
+{{ 'JAWIRA'|to_macro }}
+{{ 'fooBarBaz'|to_macro }}
+{{ ''|to_macro }}
+{{ 'HELLO_WORLD'|to_macro }}
+--DATA--
+return [];
+--EXPECT--
+JAWIRA
+FOO_BAR_BAZ
+
+HELLO_WORLD

@@ -1,0 +1,14 @@
+--TEST--
+"to_camel" filter
+--TEMPLATE--
+{{ 'JAWIRA'|to_camel }}
+{{ 'fooBarBaz'|to_camel }}
+{{ ''|to_camel }}
+{{ 'HELLO_WORLD'|to_camel }}
+--DATA--
+return [];
+--EXPECT--
+jawira
+fooBarBaz
+
+helloWorld

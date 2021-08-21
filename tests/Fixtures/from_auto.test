@@ -1,0 +1,20 @@
+--TEST--
+"from_auto" filter
+--TEMPLATE--
+{{ ''|from_auto|to_dot }}
+{{ 'jawira'|from_auto|to_dot }}
+{{ 'JAWIRA'|from_auto|to_dot }}
+{{ 'foo.bar.baz'|from_auto|to_dot }}
+{{ 'Foo_Bar_Baz'|from_auto|to_camel }}
+{{ 'FooBarBaz'|from_auto|to_kebab }}
+{{ 'foo-bar-baz'|from_auto|to_lower }}
+--DATA--
+return [];
+--EXPECT--
+
+jawira
+jawira
+foo.bar.baz
+fooBarBaz
+foo-bar-baz
+foo bar baz

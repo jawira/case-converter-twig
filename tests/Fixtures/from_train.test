@@ -1,0 +1,20 @@
+--TEST--
+"from_train" filter
+--TEMPLATE--
+{{ ''|from_train|to_dot }}
+{{ 'jawira'|from_train|to_dot }}
+{{ 'JAWIRA'|from_train|to_dot }}
+{{ 'Foo-Bar-Baz'|from_train|to_dot }}
+{{ 'Foo-Bar-Baz'|from_train|to_camel }}
+{{ 'Foo-Bar-Baz'|from_train|to_kebab }}
+{{ 'Foo-Bar-Baz'|from_train|to_lower }}
+--DATA--
+return [];
+--EXPECT--
+
+jawira
+jawira
+foo.bar.baz
+fooBarBaz
+foo-bar-baz
+foo bar baz

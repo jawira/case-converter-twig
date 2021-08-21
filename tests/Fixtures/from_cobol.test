@@ -1,0 +1,20 @@
+--TEST--
+"from_cobol" filter
+--TEMPLATE--
+{{ ''|from_cobol|to_dot }}
+{{ 'jawira'|from_cobol|to_dot }}
+{{ 'JAWIRA'|from_cobol|to_dot }}
+{{ 'FOO-BAR-BAZ'|from_cobol|to_dot }}
+{{ 'FOO-BAR-BAZ'|from_cobol|to_camel }}
+{{ 'FOO-BAR-BAZ'|from_cobol|to_kebab }}
+{{ 'FOO-BAR-BAZ'|from_cobol|to_lower }}
+--DATA--
+return [];
+--EXPECT--
+
+jawira
+jawira
+foo.bar.baz
+fooBarBaz
+foo-bar-baz
+foo bar baz

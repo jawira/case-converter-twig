@@ -1,0 +1,20 @@
+--TEST--
+"from_sentence" filter
+--TEMPLATE--
+{{ ''|from_sentence|to_dot }}
+{{ 'jawira'|from_sentence|to_dot }}
+{{ 'JAWIRA'|from_sentence|to_dot }}
+{{ 'Foo bar baz'|from_sentence|to_dot }}
+{{ 'Foo bar baz'|from_sentence|to_camel }}
+{{ 'Foo bar baz'|from_sentence|to_kebab }}
+{{ 'Foo bar baz'|from_sentence|to_lower }}
+--DATA--
+return [];
+--EXPECT--
+
+jawira
+jawira
+foo.bar.baz
+fooBarBaz
+foo-bar-baz
+foo bar baz

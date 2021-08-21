@@ -1,0 +1,20 @@
+--TEST--
+"from_snake" filter
+--TEMPLATE--
+{{ ''|from_snake|to_dot }}
+{{ 'jawira'|from_snake|to_dot }}
+{{ 'JAWIRA'|from_snake|to_dot }}
+{{ 'foo_bar_baz'|from_snake|to_dot }}
+{{ 'foo_bar_baz'|from_snake|to_camel }}
+{{ 'foo_bar_baz'|from_snake|to_kebab }}
+{{ 'foo_bar_baz'|from_snake|to_lower }}
+--DATA--
+return [];
+--EXPECT--
+
+jawira
+jawira
+foo.bar.baz
+fooBarBaz
+foo-bar-baz
+foo bar baz

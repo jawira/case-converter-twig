@@ -2,16 +2,14 @@
 
 namespace Jawira\CaseConverterTwig;
 
+use Exception;
 use Jawira\CaseConverter\CaseConverter;
+use Jawira\CaseConverter\Convert;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
-use function array_keys;
 use function array_map;
-use function array_values;
-use function assert;
-use function is_callable;
+use function is_string;
 use function reset;
-use function var_dump;
 
 /**
  * @author Jawira Portugal
@@ -29,38 +27,59 @@ class CaseConverterExtension extends AbstractExtension
   public function getFilters(): array
   {
     /** @var array<string, callable> $filters */
-    $filters = ['to_ada'      => [$this, 'toAda'],
-                'to_camel'    => [$this, 'toCamel'],
-                'to_cobol'    => [$this, 'toCobol'],
-                'to_dot'      => [$this, 'toDot'],
-                'to_kebab'    => [$this, 'toKebab'],
-                'to_lower'    => [$this, 'toLower'],
-                'to_macro'    => [$this, 'toMacro'],
-                'to_pascal'   => [$this, 'toPascal'],
-                'to_sentence' => [$this, 'toSentence'],
-                'to_snake'    => [$this, 'toSnake'],
-                'to_title'    => [$this, 'toTitle'],
-                'to_train'    => [$this, 'toTrain'],
-                'to_upper'    => [$this, 'toUpper'],];
+    $filters = ['to_ada',
+                'to_camel',
+                'to_cobol',
+                'to_dot',
+                'to_kebab',
+                'to_lower',
+                'to_macro',
+                'to_pascal',
+                'to_sentence',
+                'to_snake',
+                'to_title',
+                'to_train',
+                'to_upper',
+                'from_auto',
+                'from_ada',
+                'from_camel',
+                'from_cobol',
+                'from_dot',
+                'from_kebab',
+                'from_lower',
+                'from_macro',
+                'from_pascal',
+                'from_sentence',
+                'from_snake',
+                'from_title',
+                'from_train',
+                'from_upper',];
 
-    $mapper = function ($filterName, $callable) {
-      return new TwigFilter($filterName, $callable);
+    $mapper = function ($filter) {
+      $method = $this->cc->convert($filter)->toCamel();
+      /** @var callable $callback */
+      $callback = [$this, $method];
+      return new TwigFilter($filter, $callback);
     };
 
-    return array_map($mapper, array_keys($filters), array_values($filters));
+    return array_map($mapper, $filters);
   }
 
   /**
-   * @param string   $value
-   * @param string[] $arguments
+   * @param string                                          $value
+   * @param array<int,string|\Jawira\CaseConverter\Convert> $arguments
    * @return string
    * @throws \Jawira\CaseConverter\CaseConverterException
+   * @throws Exception
    */
   public function __call($value, $arguments)
   {
-    /** @var string $input */
-    $input = reset($arguments);
-
-    return $this->cc->convert($input)->$value();
+    /** @var string|\Jawira\CaseConverter\Convert $input */
+    $input   = reset($arguments);
+    $convert = is_string($input) ? $this->cc->convert($input) : $input;
+    if (!($convert instanceof Convert)) {
+      throw new Exception('Invalid value to convert.');
+    }
+    return $convert->$value();
   }
 }

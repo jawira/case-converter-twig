@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         colors="true"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
          bootstrap="vendor/autoload.php"
+         cacheResultFile=".phpunit.cache/test-results"
+         executionOrder="depends,defects"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutTodoAnnotatedTests="true"
          failOnRisky="true"
          failOnWarning="true"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
-
-  <coverage>
-    <include>
-      <directory>src</directory>
-    </include>
-  </coverage>
-
-  <php>
-    <env name="LANG" value="en_US.UTF-8" force="true"/>
-    <ini name="error_reporting" value="-1"/>
-  </php>
+         verbose="true"
+         colors="true"
+         noInteraction="true">
 
   <testsuites>
     <testsuite name="default">
-      <directory>./tests/</directory>
+      <directory suffix="Test.php">tests</directory>
     </testsuite>
   </testsuites>
+
+  <coverage cacheDirectory=".phpunit.cache/code-coverage"
+            processUncoveredFiles="true">
+    <include>
+      <directory suffix=".php">src</directory>
+    </include>
+    <report>
+      <text outputFile="php://stdout"/>
+      <cobertura outputFile="cobertura.xml"/>
+      <html outputDirectory="resources/report"/>
+    </report>
+  </coverage>
 
 </phpunit>

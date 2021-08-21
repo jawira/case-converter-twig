@@ -1,5 +1,8 @@
 /.idea/
-/vendor/
-composer.lock
-/.phpunit.result.cache
 /.phpunit.cache/
+/vendor/
+/.phpunit.result.cache
+/cobertura.xml
+/composer.lock
+/phpunit.result.cache
+/resources/report

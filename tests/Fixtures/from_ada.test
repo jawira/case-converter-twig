@@ -1,0 +1,20 @@
+--TEST--
+"from_ada" filter
+--TEMPLATE--
+{{ ''|from_ada|to_dot }}
+{{ 'jawira'|from_ada|to_dot }}
+{{ 'JAWIRA'|from_ada|to_dot }}
+{{ 'Foo_Bar_Baz'|from_ada|to_dot }}
+{{ 'Foo_Bar_Baz'|from_ada|to_camel }}
+{{ 'Foo_Bar_Baz'|from_ada|to_kebab }}
+{{ 'Foo_Bar_Baz'|from_ada|to_lower }}
+--DATA--
+return [];
+--EXPECT--
+
+jawira
+jawira
+foo.bar.baz
+fooBarBaz
+foo-bar-baz
+foo bar baz

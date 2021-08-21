@@ -1,21 +1,7 @@
 🔤 Twig extension for Case Converter
 ====================================
 
-This package is a Twig extension that provides the following filters:
-
-- `to_ada`
-- `to_camel`
-- `to_cobol`
-- `to_dot`
-- `to_kebab`
-- `to_lower`
-- `to_macro`
-- `to_pascal`
-- `to_sentence`
-- `to_snake`
-- `to_title`
-- `to_train`
-- `to_upper`
+This Twig extension is port from **jawira/case-converter**.
 
 [![Latest Stable Version](https://poser.pugx.org/jawira/case-converter-twig/v)](//packagist.org/packages/jawira/case-converter-twig)
 [![Total Downloads](https://poser.pugx.org/jawira/case-converter-twig/downloads)](//packagist.org/packages/jawira/case-converter-twig)
@@ -26,10 +12,40 @@ This package is a Twig extension that provides the following filters:
 Usage
 -----
 
+This library provides the following filters:
+
+| **from_**       | **to_**       |
+|-----------------|---------------|
+| `from_auto`     |               |
+| `from_ada`      | `to_ada`      |
+| `from_camel`    | `to_camel`    |
+| `from_cobol`    | `to_cobol`    |
+| `from_dot`      | `to_dot`      |
+| `from_kebab`    | `to_kebab`    |
+| `from_lower`    | `to_lower`    |
+| `from_macro`    | `to_macro`    |
+| `from_pascal`   | `to_pascal`   |
+| `from_sentence` | `to_sentence` |
+| `from_snake`    | `to_snake`    |
+| `from_title`    | `to_title`    |
+| `from_train`    | `to_train`    |
+| `from_uppder`   |  `to_upper`   |
+
+Use a `to_*` filter to [automatically](https://jawira.github.io/case-converter/detection-algorithm.html) change the
+casing convention of a *string*:
+
 ```twig
 {{ 'welcome-to-the-jungle'|to_camel }}
 
 {# outputs 'welcomeToTheJungle' #}
+```
+
+Optionally, you can call a `from_*` filter to specify the casing convention of input *string*:
+
+```twig
+{{ 'user.first-name'|from_dot|to_upper }}
+
+{# outputs 'USER FIRST-NAME' #}
 ```
 
 How to install
@@ -48,13 +64,8 @@ If you are not using Symfony Flex, you also have to register the extension:
 services:
   jawira.case.converter.twig:
     class: \Jawira\CaseConverterTwig\CaseConverterExtension
-    tags: ['twig.extension']
+    tags: [ 'twig.extension' ]
 ```
-
-Documentation
--------------
-
-<https://jawira.github.io/case-converter/>
 
 Contributing
 ------------

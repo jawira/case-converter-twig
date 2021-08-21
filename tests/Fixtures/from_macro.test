@@ -1,0 +1,20 @@
+--TEST--
+"from_macro" filter
+--TEMPLATE--
+{{ ''|from_macro|to_dot }}
+{{ 'jawira'|from_macro|to_dot }}
+{{ 'JAWIRA'|from_macro|to_dot }}
+{{ 'FOO_BAR_BAZ'|from_macro|to_dot }}
+{{ 'FOO_BAR_BAZ'|from_macro|to_camel }}
+{{ 'FOO_BAR_BAZ'|from_macro|to_kebab }}
+{{ 'FOO_BAR_BAZ'|from_macro|to_lower }}
+--DATA--
+return [];
+--EXPECT--
+
+jawira
+jawira
+foo.bar.baz
+fooBarBaz
+foo-bar-baz
+foo bar baz

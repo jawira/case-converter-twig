@@ -1,0 +1,20 @@
+--TEST--
+"from_upper" filter
+--TEMPLATE--
+{{ ''|from_upper|to_dot }}
+{{ 'jawira'|from_upper|to_dot }}
+{{ 'JAWIRA'|from_upper|to_dot }}
+{{ 'FOO BAR BAZ'|from_upper|to_dot }}
+{{ 'FOO BAR BAZ'|from_upper|to_camel }}
+{{ 'FOO BAR BAZ'|from_upper|to_kebab }}
+{{ 'FOO BAR BAZ'|from_upper|to_lower }}
+--DATA--
+return [];
+--EXPECT--
+
+jawira
+jawira
+foo.bar.baz
+fooBarBaz
+foo-bar-baz
+foo bar baz

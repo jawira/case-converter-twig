@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-
+<?xml version="1.0" encoding="UTF-8"?>
 <project name="case-converter-twig" description="Twig extension for Case-Converter" default="help">
 
   <target name="qa" depends="php:lint,phpunit:run,phpstan:analyze"/>
@@ -11,10 +10,6 @@
         <exclude name="vendor/**"/>
       </fileset>
     </phplint>
-  </target>
-
-  <target name="phpunit:run" description="Runs PHPUnit tests">
-    <exec executable="vendor/bin/phpunit" passthru="true" checkreturn="true"/>
   </target>
 
   <target name="phpstan:analyze" description="Analyse at max level">
@@ -33,4 +28,10 @@
     </exec>
   </target>
 
+  <target name="phpunit:run" description="Run PHPUnit tests">
+    <!-- All config is located in phpunit.xml -->
+    <exec executable="vendor/bin/phpunit" checkreturn="true" passthru="true">
+      <env key="XDEBUG_MODE" value="coverage"/>
+    </exec>
+  </target>
 </project>

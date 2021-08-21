@@ -17,14 +17,14 @@
   "require": {
     "php": ">=7.1.3",
     "jawira/case-converter": "^3.4",
-    "twig/twig": "^2.4 || ^3.0",
-    "phpstan/phpstan": "^0.12.88"
+    "twig/twig": "^2.4 || ^3.0"
   },
   "require-dev": {
     "ergebnis/composer-normalize": "^2.14",
-    "jawira/skeleton": "^2.2",
+    "jawira/skeleton": "^2.5",
     "symfony/phpunit-bridge": "^4.4.9|^5.0.9|^6.0",
-    "phpunit/phpunit": "^9.5"
+    "phpunit/phpunit": "^9.5",
+    "phpstan/phpstan": "^0.12.95"
   },
   "autoload": {
     "psr-4": {

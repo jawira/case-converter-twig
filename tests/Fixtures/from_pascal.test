@@ -1,0 +1,20 @@
+--TEST--
+"from_pascal" filter
+--TEMPLATE--
+{{ ''|from_pascal|to_dot }}
+{{ 'jawira'|from_pascal|to_dot }}
+{{ 'JAWIRA'|from_pascal|to_dot }}
+{{ 'FooBarBaz'|from_pascal|to_dot }}
+{{ 'FooBarBaz'|from_pascal|to_camel }}
+{{ 'FooBarBaz'|from_pascal|to_kebab }}
+{{ 'FooBarBaz'|from_pascal|to_lower }}
+--DATA--
+return [];
+--EXPECT--
+
+jawira
+j.a.w.i.r.a
+foo.bar.baz
+fooBarBaz
+foo-bar-baz
+foo bar baz

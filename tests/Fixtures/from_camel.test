@@ -1,0 +1,20 @@
+--TEST--
+"from_camel" filter
+--TEMPLATE--
+{{ ''|from_camel|to_dot }}
+{{ 'jawira'|from_camel|to_dot }}
+{{ 'JAWIRA'|from_camel|to_dot }}
+{{ 'FooBarBaz'|from_camel|to_dot }}
+{{ 'FooBarBaz'|from_camel|to_camel }}
+{{ 'FooBarBaz'|from_camel|to_kebab }}
+{{ 'FooBarBaz'|from_camel|to_lower }}
+--DATA--
+return [];
+--EXPECT--
+
+jawira
+j.a.w.i.r.a
+foo.bar.baz
+fooBarBaz
+foo-bar-baz
+foo bar baz

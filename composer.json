@@ -1,13 +1,13 @@
 {
   "name": "jawira/case-converter-twig",
-  "type": "library",
   "description": "\ud83d\udd24 Twig extension for Case Converter",
+  "license": "MIT",
+  "type": "library",
   "keywords": [
     "twig",
     "twig-extension",
     "case-converter"
   ],
-  "license": "MIT",
   "authors": [
     {
       "name": "jawira",
@@ -21,14 +21,27 @@
   },
   "require-dev": {
     "ergebnis/composer-normalize": "^2.14",
-    "jawira/skeleton": "^2.5",
-    "symfony/phpunit-bridge": "^4.4.9|^5.0.9|^6.0",
+    "jawira/skeleton": "^2.16",
+    "phpstan/phpstan": "^0.12.95",
     "phpunit/phpunit": "^9.5",
-    "phpstan/phpstan": "^0.12.95"
+    "symfony/phpunit-bridge": "^4.4.9 || ^5.0.9 || ^6.0"
   },
   "autoload": {
     "psr-4": {
       "Jawira\\CaseConverterTwig\\": "src/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "ergebnis/composer-normalize": true
+    }
+  },
+  "extra": {
+    "symfony": {
+      "endpoint": [
+        "https://api.github.com/repos/jawira/recipes/contents/index.json",
+        "flex://defaults"
+      ]
     }
   }
 }
